@@ -1,108 +1,47 @@
 
 import {
-
     Chart as ChartJS,
-  
     CategoryScale,
-  
     LinearScale,
-  
     PointElement,
-  
     LineElement,
-  
     Title,
-  
     Tooltip,
-  
     Legend,
-  
   } from 'chart.js';
-  
   import { Line } from 'react-chartjs-2';
-  
-   
-  
   ChartJS.register(
-  
     CategoryScale,
-  
     LinearScale,
-  
     PointElement,
-  
     LineElement,
-  
     Title,
-  
     Tooltip,
-  
     Legend
-  
   );
   
-   
-  
-   
-  
-   
-  
   const NewChart =({chartdata,selectedTopic})=>{
-  
   console.log(selectedTopic)
-  
-   
-  
-     
-  
        const options = {
-  
         responsive: true,
-  
         plugins: {
-  
           legend: {
-  
             position: 'top'
-  
           },
-  
           title: {
-  
             display: true,
-  
             // text: 'Chart.js Bar Chart',
-  
           },
-  
         },
-  
       };
   
-   
-  
-   
-  
-   
-  
     for(let i=0;i<chartdata.length;i++){
-  
       // console.log(chartdata[i])
-  
       const oldlabel = chartdata[i]["Source Workspace"]
-  
       const last = oldlabel.lastIndexOf("|" )
-  
         const len = oldlabel.length
-  
-   
-  
         const newstring = oldlabel.slice(last+1 ,len  );
-  
         chartdata[i]["Source Workspace"] = newstring
-  
-   
-  
         var values1=Object.values(chartdata[i])
   
         values1.shift()
